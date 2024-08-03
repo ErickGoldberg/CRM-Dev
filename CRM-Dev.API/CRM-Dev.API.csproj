@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>CRM_Dev.API</RootNamespace>
+    <UserSecretsId>3b5c5730-2eef-4c6a-887a-383a3811c61c</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

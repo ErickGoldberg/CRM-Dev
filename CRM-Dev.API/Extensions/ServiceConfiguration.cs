@@ -1,5 +1,7 @@
 ﻿using CRM_Dev.Core.Repositories;
+using CRM_Dev.Infraestructure.Persistence;
 using CRM_Dev.Infraestructure.Persistence.Repositories;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
 namespace CRM_Dev.API.Extensions
@@ -55,8 +57,8 @@ namespace CRM_Dev.API.Extensions
             //services.AddControllers(options => options.Filters.Add(typeof()))
             //        .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<RegisterGoalValidator>());
 
-            //builder.Services.AddDbContext<CRMDevDbContext>(options
-            //    => options.UseSqlServer(builder.Configuration.GetConnectionString("CRMDevDb")));
+            builder.Services.AddDbContext<CRMDevDbContext>(options
+                => options.UseSqlServer(builder.Configuration.GetConnectionString("CRMDevDb")));
 
             return services;
         }
