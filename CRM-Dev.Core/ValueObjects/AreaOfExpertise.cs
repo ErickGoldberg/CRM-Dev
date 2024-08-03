@@ -1,4 +1,4 @@
-﻿namespace CRM_Dev.Core.Entities
+﻿namespace CRM_Dev.Core.ValueObjects
 {
     public class AreaOfExpertise
     {

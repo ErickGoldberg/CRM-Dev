@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using System.Reflection.Metadata;
+using CRM_Dev.Core.ValueObjects;
 
 namespace CRM_Dev.Core.Entities
 {
