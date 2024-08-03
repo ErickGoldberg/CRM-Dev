@@ -8,7 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.9.2" />
+    <PackageReference Include="MediatR" Version="12.4.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CRM-Dev.Application\CRM-Dev.Application.csproj" />
+    <ProjectReference Include="..\CRM-Dev.Core\CRM-Dev.Core.csproj" />
+    <ProjectReference Include="..\CRM-Dev.Infraestructure\CRM-Dev.Infraestructure.csproj" />
   </ItemGroup>
 
 </Project>
