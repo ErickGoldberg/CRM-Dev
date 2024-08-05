@@ -1,4 +1,6 @@
-﻿namespace CRM_Dev.Core.Entities
+﻿using CRM_Dev.Core.Enums;
+
+namespace CRM_Dev.Core.Entities.Base
 {
     public abstract class BaseEntity
     {
@@ -8,21 +10,22 @@
             CreatedAt = DateTime.Now;
             UpdatedAt = DateTime.Now;
 
-            IsDeleted = false;
+            EntityStatus = EntityStatusEnum.Actived;
         }
-
 
         public Guid Id { get; }
         public DateTime CreatedAt { get; }
         public DateTime UpdatedAt { get; protected set; }
-        public bool IsDeleted { get; protected set; }
+        public EntityStatusEnum EntityStatus { get; protected set; }
 
-
-        public virtual void Activate() 
-            => IsDeleted = false;
+        public virtual void Activate()
+            => EntityStatus = EntityStatusEnum.Actived;
 
         public virtual void Deactivate()
-            => IsDeleted = true;
+            => EntityStatus = EntityStatusEnum.Deactivated;        
+        
+        public virtual void Delete()
+            => EntityStatus = EntityStatusEnum.Deleted;
 
         public virtual void SetUpdatedAtDate(DateTime updatedAtDate)
             => UpdatedAt = updatedAtDate;

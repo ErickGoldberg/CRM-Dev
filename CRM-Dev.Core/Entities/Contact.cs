@@ -1,5 +1,4 @@
-﻿using System.Net;
-using System.Reflection.Metadata;
+﻿using CRM_Dev.Core.Entities.Base;
 
 namespace CRM_Dev.Core.Entities
 {
