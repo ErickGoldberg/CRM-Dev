@@ -2,14 +2,10 @@
 using CRM_Dev.Application.Commands.Opportunity.DeleteOpportunity;
 using CRM_Dev.Application.Commands.Opportunity.RegisterOpportunity;
 using CRM_Dev.Application.Commands.Opportunity.UpdateOpportunity;
-using CRM_Dev.Application.Queries.Contact.ListContacts;
 using CRM_Dev.Application.Queries.Opportunity.GetOpportunitiesByTitle;
 using CRM_Dev.Application.Queries.Opportunity.ListOpportunities;
-using CRM_Dev.Core.Entities;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace CRM_Dev.API.Controllers
 {
@@ -40,7 +36,7 @@ namespace CRM_Dev.API.Controllers
         [HttpPost("GetByFilter")]
         public async Task<IActionResult> GetByFilter(GetOpportunitiesByFilterQuery query)
         {
-            var result = _mediator.Send(query);
+            var result = await _mediator.Send(query);
             if (result.Any())
                 return NotFound(Result<object>.NotFound());
 
@@ -57,7 +53,7 @@ namespace CRM_Dev.API.Controllers
             return Created("Your Opportunity was registered successfully!", command);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut]
         public async Task<IActionResult> Update(UpdateOpportunityCommand command)
         {
             var result = await _mediator.Send(command);

@@ -1,8 +1,9 @@
-﻿using CRM_Dev.Core.Enums;
+﻿using CRM_Dev.Core.Entities.Base;
+using CRM_Dev.Core.Enums;
 
 namespace CRM_Dev.Core.Entities
 {
-    public class Opportunity
+    public class Opportunity : BaseEntity
     {
         public string Title { get; private set; }
         public string Description { get; private set; }
